@@ -1,0 +1,9 @@
+1.WAP to calculate  the tiails for the given surface area to calculate squre feet area base on selected tails size.
+
+2.WAP to construct such rcc slap how much meterail is requried calculation base on area of base on squre feet of area and thicness of rcc using as a meterail cement,cent,kapchi and water.
+ex.	50kg cement
+	100 cent
+	150 kapchi
+	50 water
+	0.2 lequid
+	
