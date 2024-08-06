@@ -7,12 +7,12 @@ const studentcontroller = require("./../Controller/StudentController");
 router.get('/students', studentcontroller.index);
 
 
-router.get('/student', studentcontroller.show);
+router.get('/student/:id', studentcontroller.show);
 
 router.post('/student', studentcontroller.store);
 
-router.put('/student', studentcontroller.update);
+router.put('/student/:id', studentcontroller.update);
 
-router.delete('/student', studentcontroller.destroy);
+router.delete('/student/:id', studentcontroller.destroy);
 
 module.exports = router;

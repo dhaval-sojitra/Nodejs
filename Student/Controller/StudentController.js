@@ -29,14 +29,14 @@ exports.store = (req, res) => {
     res.json({
         "status": "success",
         "data": [
-            { "id": id, "name": "Dhaval", "program": "MCA", "enrno": 230823101, "dob": "12/10/2002", "bloodgroup": "O+", "mobile": 6351393788, "email": "dhaval@gmail.com", "address": "Surat" },
+            { "id": 3, "name": "Dhaval", "program": "MCA", "enrno": 230823101, "dob": "12/10/2002", "bloodgroup": "O+", "mobile": 6351393788, "email": "dhaval@gmail.com", "address": "Surat" },
         ],
         "message": "Post data"
     });
 }
 
 exports.update = (req, res) => {
-
+    let id = req.params.id
     res.json({
         "status": "success",
         "data": [
@@ -47,7 +47,7 @@ exports.update = (req, res) => {
 }
 
 exports.destroy = (req, res) => {
-
+    let id = req.params.id;
     res.json({
         "status": "success",
         "data": [
