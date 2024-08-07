@@ -25,14 +25,14 @@ exports.show = (req, res) => {
     });
 }
 
-exports.store = (req, res) => {
-    res.json({
-        "status": "success",
-        "data": [
-            { "id": 3, "name": "Dhaval", "program": "MCA", "enrno": 230823101, "dob": "12/10/2002", "bloodgroup": "O+", "mobile": 6351393788, "email": "dhaval@gmail.com", "address": "Surat" },
-        ],
-        "message": "Post data"
-    });
+exports.store = async(req, res) => {
+    try {
+        console.log(req.body);
+        const student = await Student.create(req.body);
+        res.status(201).json(student);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 }
 
 exports.update = (req, res) => {
