@@ -29,7 +29,7 @@ exports.store = async(req, res) => {
 
 exports.update = async(req, res) => {
     try {
-        const data = await Faculty.findByIdAndUpdate(req.body.id, req.body, { new: true })
+        const data = await Faculty.findByIdAndUpdate({ "_id": req.params.id }, req.body, { new: true })
         res.status(201).json(data);
     } catch (error) {
         console.error(error);
@@ -38,7 +38,7 @@ exports.update = async(req, res) => {
 
 exports.delete = async(req, res) => {
     try {
-        const data = await Faculty.findByIdAndDelete({ "_id": req.body.id })
+        const data = await Faculty.findByIdAndDelete({ "_id": req.params.id })
         res.status(201).json(data);
     } catch (error) {
         console.error(error);
