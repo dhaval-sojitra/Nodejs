@@ -5,6 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #input {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #messages {
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        #messages li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        #messages li:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,26 +55,22 @@
     <script>
         const socket = io();
         const input = document.getElementById('input');
-        const message = document.getElementById('messages');
+        const messages = document.getElementById('messages');
+        
         input.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 socket.emit('message', input.value);
                 input.value = '';
             }
         });
+        
         socket.on('message', function(msg) {
             const item = document.createElement('li');
             item.textContent = msg;
             messages.appendChild(item);
+            messages.scrollTop = messages.scrollHeight; // Auto-scroll to the bottom
         });
     </script>
-
-
-
-
-
 </body>
-
-</html>
 
 </html>
